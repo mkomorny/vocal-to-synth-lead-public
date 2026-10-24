@@ -1,0 +1,54 @@
+HOW TO USE: vocal-to-synth-lead
+==================================================
+
+PURPOSE
+  Dedicated vocal-to-MIDI melody transcriber that turns singing, humming,
+  whistling, voice memos, and studio acapellas into clean, expressive monophonic
+  MIDI melodies ready to drive synthesizers and virtual instruments.
+
+CAPABILITIES
+  - Breath and lip-smack rejection: raised onset threshold (0.60) and 65 Hz - 1100 Hz frequency window
+  - Strict monophonic guarantee: eliminates accidental polyphonic double-notes for smooth synth glide
+  - Vocal pitch bend smoothing: filters out micro-jitter and throat tremors while keeping slides and vibrato
+  - Hard-tune mode (`--no-bends`): strips all pitch bends for rigid, grid-quantized dance/pop synth leads
+  - Local File Mode: saves `.mid` directly adjacent to source audio file
+  - DAW Integration: stages MIDI clips in Ableton User Library (`Samples/Basic Pitch Leads`) with optional OSC launch
+
+USE CASES
+  - Hum or whistle a melody into your phone and convert the voice memo into a synth lead MIDI clip
+  - Turn an acapella vocal track into a doubled synth lead line (e.g. Daft Punk / EDM vocal lead layer)
+  - Transcribe vocal hooks into MIDI notes for score notation or sheet music lead sheets
+  - Drive monophonic analog synthesizers with natural human vocal phrasing and glissandos
+  - Quantize rough vocal guide tracks into rigid electronic arp leads
+
+IDEAS
+  - Chain with vocal-separation: extract a clean acapella first, then run vocal-to-synth-lead to capture the melody
+  - Layer the resulting MIDI track with a Serum or Diva saw lead right underneath the lead vocal in Ableton
+  - Use `--no-bends` mode to turn soulful vocal riffs into snappy 8-bit chiptune or arpeggiated synth lines
+  - Convert vocal beatbox or scatting melodies into monophonic bass synth tracks
+  - Feed the transcribed MIDI into ableton-midi-chord-builder or reharmonization-engine to harmonize the vocal melody
+
+PROMPTS YOU CAN PASTE
+  Transcribe this voice memo "C:\Music\humming_idea.m4a" into a synth lead MIDI clip.
+
+  Turn this acapella "C:\Audio\lead_vocal.wav" into a monophonic MIDI melody.
+
+  Convert my singing into an electronic synth lead with no pitch bends.
+
+  Extract the vocal melody from this file and stage it for Ableton Live.
+
+EXAMPLE FLOW
+  You:   Turn "C:\VoiceMemos\synth_riff.wav" into a synth lead MIDI file.
+  Model: [Applies breath rejection and monophonic cleaning via Spotify Basic Pitch]
+         [Smooths throat vibrato while preserving intentional pitch bends]
+         Vocal Lead MIDI saved:
+         - MIDI File: [synth_riff_vocal_lead.mid](file:///C:/VoiceMemos/synth_riff_vocal_lead.mid)
+         - Notes Extracted: 48 monophonic notes
+         - Suggested Instrument: Sawtooth Lead, Mono Legato Synth, or Square Lead
+
+DEFAULT GOALS IF YOU DON'T NAME ONE
+  1. Verify the audio file path and resolve output `.mid` destination.
+  2. Execute `vocal_lead.py` with vocal-optimized onset and frequency thresholds (65 Hz - 1100 Hz).
+  3. Enforce strict monophonic note transitions (no overlapping notes).
+  4. Apply moving-average smoothing to pitch bends.
+  5. Return clickable markdown links to the generated `.mid` file with note count summary.
